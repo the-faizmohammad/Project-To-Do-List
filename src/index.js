@@ -11,3 +11,7 @@ const tasks = [
   { description: 'Call a friend', completed: false, index: 2 },
   { description: 'Read a book', completed: true, index: 1 },
 ];
+// Function to render the list of tasks
+const render = () => {
+  // Clone the tasks array and sort it based on the 'index' property
+  const sortedTasks = tasks.slice().sort((a, b) => a.index - b.index);
