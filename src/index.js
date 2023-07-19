@@ -28,3 +28,5 @@ const render = () => {
   // Set the HTML content of 'addList' with the generated list items
   addList.innerHTML = tasksHTML;
 };
+// When the DOM content is loaded, call the 'render' function to display the list of tasks
+document.addEventListener('DOMContentLoaded', render);
