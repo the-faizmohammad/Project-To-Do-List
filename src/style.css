@@ -29,3 +29,8 @@
     padding: 12px;
     align-items: center;
   }
+
+  .image-reload {
+    width: 25px;
+    height: 25px;
+  }
