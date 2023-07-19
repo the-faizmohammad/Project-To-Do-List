@@ -36,7 +36,7 @@
   }
 
   ul#add-list {
-    width: 90%;
+    width: 98%;
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -60,10 +60,9 @@
     width: 100%;
     padding: 16px;
     justify-content: center;
-    background: #7a7a7b;
+    background: #eaeaed;
   }
   .clear-list-para {
     font-size: medium;
     font-weight: bold;
   }
-  
