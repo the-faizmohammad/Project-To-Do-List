@@ -15,3 +15,13 @@ const tasks = [
 const render = () => {
   // Clone the tasks array and sort it based on the 'index' property
   const sortedTasks = tasks.slice().sort((a, b) => a.index - b.index);
+   // Generate HTML list items for each task and join them into a string
+  const tasksHTML = sortedTasks.map(task => `
+    <li class='my-each-task'>
+      <div class='check-tag'>
+        <input type='checkbox' id='task-desc'>
+        <label for='task-desc'>${task.description}</label>
+      </div>
+      <img src=${moreIcon} class='show-more' alt='three dots'/>
+    </li>
+  `).join('');
