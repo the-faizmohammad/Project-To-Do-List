@@ -34,3 +34,18 @@
     width: 25px;
     height: 25px;
   }
+
+  ul#add-list {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    font-size: 22px;
+  }
+  
+  li.my-each-task {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid #acacad;
+  }
