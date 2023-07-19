@@ -49,3 +49,21 @@
     padding: 12px;
     border-bottom: 1px solid #acacad;
   }
+
+  .show-more {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .clear-all-list {
+    display: flex;
+    width: 100%;
+    padding: 16px;
+    justify-content: center;
+    background: #7a7a7b;
+  }
+  .clear-list-para {
+    font-size: medium;
+    font-weight: bold;
+  }
+  
