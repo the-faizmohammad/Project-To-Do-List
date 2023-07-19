@@ -30,3 +30,8 @@ const render = () => {
 };
 // When the DOM content is loaded, call the 'render' function to display the list of tasks
 document.addEventListener('DOMContentLoaded', render);
+// Create and configure the reload image element
+const reloadImg = new Image();
+reloadImg.src = reloadIcon;
+reloadImg.className = 'image-reload';
+reloadImg.setAttribute('alt', 'icon-reload');
