@@ -35,3 +35,5 @@ const reloadImg = new Image();
 reloadImg.src = reloadIcon;
 reloadImg.className = 'image-reload';
 reloadImg.setAttribute('alt', 'icon-reload');
+// Append the reload image to the main heading
+mainHeading.appendChild(reloadImg);
