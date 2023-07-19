@@ -25,3 +25,6 @@ const render = () => {
       <img src=${moreIcon} class='show-more' alt='three dots'/>
     </li>
   `).join('');
+  // Set the HTML content of 'addList' with the generated list items
+  addList.innerHTML = tasksHTML;
+};
