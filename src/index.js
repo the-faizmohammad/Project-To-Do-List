@@ -24,3 +24,32 @@ addIcon.src = addPlus;
 addIcon.setAttribute('alt', 'addicon');
 addIcon.className = 'addicon';
 addButton.appendChild(addIcon);
+addListDiv.appendChild(inputTask);
+addListDiv.appendChild(addButton);
+
+let tasks = JSON.parse(localStorage.getItem('todolist')) || [];
+
+// Function to update the index of tasks after deletions
+function setIndex() {
+  tasks.forEach((task, index) => {
+    task.id = index + 1;
+  });
+  localStorage.setItem('todolist', JSON.stringify(tasks));
+}
+class Create {
+  constructor(newTask) {
+    this.newTask = newTask;
+  }
+
+  createTodo() {
+    const taskListItem = document.createElement('li');
+    taskListItem.className = 'create-each-task';
+
+    const taskTag = document.createElement('div');
+    taskTag.className = 'tag-check';
+
+    const checkBox = document.createElement('input');
+    checkBox.setAttribute('class', 'task-check');
+    checkBox.setAttribute('type', 'checkbox');
+    checkBox.checked = this.newTask.complete;
+
