@@ -2,6 +2,7 @@ import './style.css';
 import reloadImage from './reload.png';
 import dltImage from './delete.png';
 import addPlus from './plus.png';
+
 const appHeading = document.querySelector('.main-heading');
 const todoList = document.getElementById('do-list');
 const addListDiv = document.querySelector('.adding-list');
@@ -65,7 +66,7 @@ class Create {
     deleteButton.className = 'deltbin';
     deleteButton.setAttribute('type', 'button');
     deleteButton.setAttribute('id', this.newTask.id);
-       const addNewIcon = new Image();
+    const addNewIcon = new Image();
     addNewIcon.className = 'addMore';
     addNewIcon.src = dltImage;
     addNewIcon.setAttribute('alt', 'plus Icon');
@@ -96,7 +97,7 @@ class Create {
     taskDescription.addEventListener('input', () => {
       this.newTask.description = taskDescription.value;
     });
-     taskDescription.addEventListener('blur', () => {
+    taskDescription.addEventListener('blur', () => {
       taskDescription.setAttribute('disabled', '');
       localStorage.setItem('todolist', JSON.stringify(tasks));
     });
