@@ -1,0 +1,69 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+}
+
+.main-heading {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid #acacad;
+  padding: 12px;
+  align-items: center;
+}
+
+.image-reload {
+  width: 27px;
+  height: 27px;
+}
+
+ul#add-list {
+  width: 99%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  font-size: 22px;
+}
+
+li.my-each-task {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #acacad;
+}
+
+.show-more {
+  width: 26px;
+  height: 26px;
+}
+
+.clear-all-list {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  justify-content: center;
+  background: #eaeaed;
+}
+
+.clear-list-para {
+  font-size: medium;
+  font-weight: bold;
+}
