@@ -71,3 +71,34 @@
     height: 20px;
     border-radius: 50%;
   }
+  
+  .addicon:hover {
+    transform: scale(1.2);
+  }
+  
+  ul#do-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    font-size: 20px;
+  }
+  
+  li.create-each-task {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid #c6c6c7;
+  }
+  
+  .create-each-task:hover {
+    background: #cff9ce;
+    transform: translateY(-2px);
+  }
+  
+  .tag-check {
+    display: flex;
+    gap: 12px;
+    width: 80%;
+  }
+  
