@@ -52,4 +52,83 @@ class Create {
     checkBox.setAttribute('class', 'task-check');
     checkBox.setAttribute('type', 'checkbox');
     checkBox.checked = this.newTask.complete;
+    if (this.newTask.complete) {
+      taskListItem.classList.add('checked');
+    }
 
+    const taskDescription = document.createElement('input');
+    taskDescription.setAttribute('type', 'text');
+    taskDescription.setAttribute('class', 'task-description');
+    taskDescription.value = this.newTask.description;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.className = 'deltbin';
+    deleteButton.setAttribute('type', 'button');
+    deleteButton.setAttribute('id', this.newTask.id);
+       const addNewIcon = new Image();
+    addNewIcon.className = 'addMore';
+    addNewIcon.src = dltImage;
+    addNewIcon.setAttribute('alt', 'plus Icon');
+
+    taskTag.appendChild(checkBox);
+    taskTag.appendChild(taskDescription);
+
+    taskListItem.appendChild(taskTag);
+    deleteButton.appendChild(addNewIcon);
+    taskListItem.appendChild(deleteButton);
+    todoList.appendChild(taskListItem);
+
+    checkBox.addEventListener('change', () => {
+      this.newTask.complete = checkBox.checked;
+
+      if (this.newTask.complete) {
+        taskListItem.classList.add('checked');
+        taskListItem.style.background = '#f4f5Cf';
+        taskListItem.style.opacity = '0.5';
+      } else {
+        taskListItem.classList.remove('checked');
+        taskListItem.style.background = 'none';
+        taskListItem.style.opacity = '1';
+      }
+      localStorage.setItem('todolist', JSON.stringify(tasks));
+    });
+
+    taskDescription.addEventListener('input', () => {
+      this.newTask.description = taskDescription.value;
+    });
+     taskDescription.addEventListener('blur', () => {
+      taskDescription.setAttribute('disabled', '');
+      localStorage.setItem('todolist', JSON.stringify(tasks));
+    });
+
+    taskTag.addEventListener('click', () => {
+      taskDescription.removeAttribute('disabled');
+      taskDescription.focus();
+    });
+
+    addNewIcon.addEventListener('click', () => {
+      tasks = tasks.filter((task) => task.id !== this.newTask.id);
+      taskListItem.remove();
+      setIndex();
+      localStorage.setItem('todolist', JSON.stringify(tasks));
+    });
+
+    return {
+      taskListItem,
+      taskDescription,
+      taskTag,
+      addNewIcon,
+    };
+  }
+}
+function addTaskToList(value) {
+  const newTask = {
+    id: tasks.length + 1,
+    description: value,
+    complete: false,
+  };
+  tasks.push(newTask);
+  const instance = new Create(newTask);
+  instance.createTodo();
+  localStorage.setItem('todolist', JSON.stringify(tasks));
+}
