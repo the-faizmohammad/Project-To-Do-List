@@ -132,3 +132,14 @@ function addTaskToList(value) {
   instance.createTodo();
   localStorage.setItem('todolist', JSON.stringify(tasks));
 }
+// Event to add the inputted task to the array and display it
+addListDiv.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  addButton.addEventListener('click', () => {
+    if (inputTask.value !== '') {
+      addTaskToList(inputTask.value);
+      inputTask.value = '';
+    }
+  });
+});
