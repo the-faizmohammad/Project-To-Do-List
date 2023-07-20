@@ -30,4 +30,29 @@
     padding: 12px;
     border-bottom: 1px solid #c6c6c7;
   }
+.reload-image {
+    width: 24px;
+    height: 24px;
+  }
   
+  .adding-list {
+    width: 100%;
+    padding: 12px;
+    border-bottom: 1px solid #c6c6c7;
+    display: flex;
+    align-items: center;
+  }
+  
+  .list-adding:hover {
+    background: #e4e4ff;
+    border: 1px solid #86f91f;
+  }
+  
+  #add-new-list {
+    width: 100%;
+    padding: 4px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background: none;
+  }  
