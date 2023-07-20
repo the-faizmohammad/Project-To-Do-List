@@ -14,8 +14,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-    - [🚀 Live Demo](#live-demo)
-    - [Loom Video Walkthrough](#video-walkthrough)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -31,7 +29,7 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# AI for Good <a name="about-project"></a>
+# To-do List <a name="about-project"></a>
 
 **Project To Do List!** 
 Welcome to the  repository for our Project To do List!
@@ -65,22 +63,11 @@ This repository contains the code and assets for To do list application."To-do l
 
 ### Key Features <a name="key-features"></a>
 
-- **Display colorfull text**
+- **function to iterate over the tasks array and populate an HTML list item element for each task.**
 - **Engaging and interactive design**
-- **Detailed information about the conference agenda and sessions**
-- **Profiles of renowned speakers and thought leaders**
+- **On page load, rendered the dynamically created list of tasks in the dedicated placeholder.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Live Demo link](https://the-faizmohammad.github.io/conferencePage/index.html)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 🚀 Loom Video Walkthrough <a name="video-walkthrough"></a>
-
-- [Loom Video Walkthrough](https://www.loom.com/share/9d3ff1f01ff942e481c790bc9cb9fb7f?sid=32f7e238-473e-462d-9014-cde462f62687)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -116,19 +103,16 @@ npm install
 
 To run the project, execute the following command:
 
-Double-click on the index file (index.html)
-
+npm run build
 ### Run tests
 
 To run tests, run the following command:
 
-N/A
+npm run dev
 
 ### Deployment
 
-You can deploy this project using:
-
-Deploy this project on any websever
+Coming Soon
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -164,7 +148,7 @@ If you like this project give me a star.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-Special thanks to author [Cindy Shin](https://www.behance.net/adagio07) for here exceptional design which served as inspiration for this project.
+Special thanks Microverse.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
