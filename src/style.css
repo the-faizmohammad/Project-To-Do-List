@@ -1,3 +1,4 @@
+
 * {
   padding: 0;
   margin: 0;
@@ -11,6 +12,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 16% 0;
 }
 
 .main {
@@ -25,45 +27,123 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  border-bottom: 1px solid #acacad;
+  align-items: center;
   padding: 12px;
+  border-bottom: 1px solid #c6c6c7;
+}
+
+.reload-image {
+  width: 24px;
+  height: 24px;
+}
+
+.adding-list {
+  width: 100%;
+  padding: 12px;
+  border-bottom: 1px solid #c6c6c7;
+  display: flex;
   align-items: center;
 }
 
-.image-reload {
-  width: 27px;
-  height: 27px;
+.list-adding:hover {
+  background: #e4e4ff;
+  border: 1px solid #86f91f;
 }
 
-ul#add-list {
-  width: 99%;
+#add-new-list {
+  width: 100%;
+  padding: 4px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+#add-new-list::placeholder {
+  font-style: italic;
+}
+
+.addbtn {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.addicon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.addicon:hover {
+  transform: scale(1.2);
+}
+
+ul#do-list {
+  width: 100%;
   display: flex;
   flex-direction: column;
   list-style: none;
-  font-size: 22px;
+  font-size: 20px;
 }
 
-li.my-each-task {
+li.create-each-task {
   display: flex;
   justify-content: space-between;
   padding: 12px;
-  border-bottom: 1px solid #acacad;
+  border-bottom: 1px solid #c6c6c7;
 }
 
-.show-more {
-  width: 26px;
-  height: 26px;
+.create-each-task:hover {
+  background: #cff9ce;
+  transform: translateY(-2px);
 }
 
-.clear-all-list {
+.tag-check {
+  display: flex;
+  gap: 12px;
+  width: 80%;
+}
+
+input.task-description {
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  background: none;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.deltbin {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.addMore {
+  width: 20px;
+  height: 20px;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.addMore:hover {
+  transform: scale(1.1);
+}
+
+.clear-list {
   display: flex;
   width: 100%;
-  padding: 16px;
+  padding: 17px;
   justify-content: center;
-  background: #eaeaed;
+  background: #f1f1f4;
 }
 
-.clear-list-para {
+.clear-list-p {
   font-size: medium;
   font-weight: bold;
 }
