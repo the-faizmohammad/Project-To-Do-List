@@ -56,3 +56,18 @@
     outline: none;
     background: none;
   }  
+#add-new-list::placeholder {
+    font-style: italic;
+  }
+  
+  .addbtn {
+    background: none;
+    outline: none;
+    border: none;
+  }
+  
+  .addicon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
