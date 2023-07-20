@@ -8,3 +8,8 @@ const addListDiv = document.querySelector('.adding-list');
 const inputTask = document.createElement('input');
 const addButton = document.createElement('button');
 const reloadIcon = new Image();
+// Add reload icon to the app heading
+reloadIcon.src = reloadImage;
+reloadIcon.className = 'reload-image';
+reloadIcon.setAttribute('alt', 'reload-icon');
+appHeading.appendChild(reloadIcon);
