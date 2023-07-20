@@ -1,6 +1,7 @@
 import './style.css';
 import reloadIcon from './reload.png';
 import moreIcon from './more.png';
+
 const mainHeading = document.querySelector('.main-heading');
 const addList = document.getElementById('add-list');
 // create array of tasks
