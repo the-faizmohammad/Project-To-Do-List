@@ -143,3 +143,16 @@ addListDiv.addEventListener('click', (e) => {
     }
   });
 });
+// Function to display the existing array of tasks from localStorage
+function displayList() {
+  if (localStorage.getItem('todolist')) {
+    tasks = JSON.parse(localStorage.getItem('todolist'));
+    tasks.forEach((task) => {
+      const instance = new Create(task);
+      const { taskListItem } = instance.createTodo();
+      todoList.appendChild(taskListItem);
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', displayList);
