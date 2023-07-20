@@ -136,7 +136,7 @@ Coming Soon
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page]().
+Feel free to check the [Issues](https://github.com/the-faizmohammad/Project-To-Do-List/issues)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
