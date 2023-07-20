@@ -1,3 +1,4 @@
+  
   * {
     padding: 0;
     margin: 0;
@@ -30,7 +31,8 @@
     padding: 12px;
     border-bottom: 1px solid #c6c6c7;
   }
-.reload-image {
+  
+  .reload-image {
     width: 24px;
     height: 24px;
   }
@@ -55,8 +57,9 @@
     border: none;
     outline: none;
     background: none;
-  }  
-#add-new-list::placeholder {
+  }
+  
+  #add-new-list::placeholder {
     font-style: italic;
   }
   
@@ -101,7 +104,8 @@
     gap: 12px;
     width: 80%;
   }
-input.task-description {
+  
+  input.task-description {
     width: 100%;
     outline: none;
     border: none;
@@ -143,4 +147,4 @@ input.task-description {
     font-size: medium;
     font-weight: bold;
   }
-    
+  
