@@ -13,3 +13,9 @@ reloadIcon.src = reloadImage;
 reloadIcon.className = 'reload-image';
 reloadIcon.setAttribute('alt', 'reload-icon');
 appHeading.appendChild(reloadIcon);
+// Set attributes for input element and button
+inputTask.setAttribute('type', 'text');
+inputTask.setAttribute('placeholder', 'Add task to your list');
+inputTask.setAttribute('id', 'add-new-list');
+addButton.type = 'button';
+addButton.className = 'addbtn';
