@@ -29,7 +29,7 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# AI for Good <a name="about-project"></a>
+# To-do List <a name="about-project"></a>
 
 **Project To Do List!** 
 Welcome to the  repository for our Project To do List!
