@@ -19,3 +19,8 @@ inputTask.setAttribute('placeholder', 'Add task to your list');
 inputTask.setAttribute('id', 'add-new-list');
 addButton.type = 'button';
 addButton.className = 'addbtn';
+const addIcon = new Image();
+addIcon.src = addPlus;
+addIcon.setAttribute('alt', 'addicon');
+addIcon.className = 'addicon';
+addButton.appendChild(addIcon);
