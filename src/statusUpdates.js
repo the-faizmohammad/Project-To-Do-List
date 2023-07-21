@@ -12,3 +12,8 @@ function saveTasksToLocalStorage(tasks) {
       saveTasksToLocalStorage(tasks);
     }
   }
+export function clearCompletedTasks() {
+    const tasks = getTasksFromLocalStorage();
+    const updatedTasks = tasks.filter((task) => !task.complete);
+    saveTasksToLocalStorage(updatedTasks);
+  }
