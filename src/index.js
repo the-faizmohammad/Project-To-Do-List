@@ -103,3 +103,18 @@ class Create {
       taskDescription.removeAttribute('disabled');
       taskDescription.focus();
     });
+   addNewIcon.addEventListener('click', () => {
+      tasks = tasks.filter((task) => task.id !== this.newTask.id);
+      taskListItem.remove();
+      setIndex();
+      localStorage.setItem('todolist', JSON.stringify(tasks));
+    });
+
+    return {
+      taskListItem,
+      taskDescription,
+      taskTag,
+      addNewIcon,
+    };
+  }
+}
