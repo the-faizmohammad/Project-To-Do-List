@@ -38,3 +38,19 @@ class Create {
   constructor(newTask) {
     this.newTask = newTask;
   }
+  createTodo() {
+    const taskListItem = document.createElement('li');
+    taskListItem.className = 'create-each-task';
+    taskListItem.setAttribute('data-task-id', this.newTask.id); // Set task ID as data attribute
+
+    const taskTag = document.createElement('div');
+    taskTag.className = 'tag-check';
+
+    const checkBox = document.createElement('input');
+    checkBox.setAttribute('class', 'task-check');
+    checkBox.setAttribute('type', 'checkbox');
+    checkBox.checked = this.newTask.complete;
+
+    if (this.newTask.complete) {
+      taskListItem.classList.add('checked');
+    }
