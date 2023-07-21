@@ -118,3 +118,25 @@ class Create {
     };
   }
 }
+function addTaskToList(value) {
+  const newTask = {
+    id: tasks.length + 1,
+    description: value,
+    complete: false,
+  };
+  tasks.push(newTask);
+  const instance = new Create(newTask);
+  instance.createTodo();
+  localStorage.setItem('todolist', JSON.stringify(tasks));
+}
+
+addListDiv.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  addButton.addEventListener('click', () => {
+    if (inputTask.value !== '') {
+      addTaskToList(inputTask.value);
+      inputTask.value = '';
+    }
+  });
+});
