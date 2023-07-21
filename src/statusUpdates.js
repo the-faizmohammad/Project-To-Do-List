@@ -4,3 +4,11 @@ function getTasksFromLocalStorage() {
 function saveTasksToLocalStorage(tasks) {
     localStorage.setItem('todolist', JSON.stringify(tasks));
   }  
+ export function updateTaskStatus(taskId, completed) {
+    const tasks = getTasksFromLocalStorage();
+    const taskToUpdate = tasks.find((task) => task.id === taskId);
+    if (taskToUpdate) {
+      taskToUpdate.complete = completed;
+      saveTasksToLocalStorage(tasks);
+    }
+  }
