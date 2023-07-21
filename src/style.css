@@ -143,7 +143,17 @@ input.task-description {
   background: #f1f1f4;
 }
 
-.clear-list-p {
+.clear-completed-btn {
   font-size: medium;
   font-weight: bold;
+  display: flex;
+  width: 100%;
+  padding: 17px;
+  justify-content: center;
+  background: #f1f1f4;
+}
+
+.clear-completed-btn:hover {
+  background-color: tomato;
+  color: #fff;
 }
