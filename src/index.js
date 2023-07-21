@@ -173,3 +173,13 @@ todoList.addEventListener('change', (e) => {
       }
     }
   }
+const clearCompletedButton = document.querySelector('.clear-completed-btn');
+if (clearCompletedButton) {
+  clearCompletedButton.addEventListener('click', () => {
+    clearCompletedTasks();
+    const completedTaskItems = document.querySelectorAll('.create-each-task.checked');
+    completedTaskItems.forEach((item) => item.remove());
+  });
+}
+
+document.addEventListener('DOMContentLoaded', displayList);
