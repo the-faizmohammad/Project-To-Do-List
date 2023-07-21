@@ -2,7 +2,8 @@ import './style.css';
 import reloadImage from './reload.png';
 import dltImage from './delete.png';
 import addPlus from './plus.png';
-import { updateTaskStatus, clearCompletedTasks } from './statusUpdates.js'; 
+import { updateTaskStatus, clearCompletedTasks } from './statusUpdates.js';
+
 const appHeading = document.querySelector('.main-heading');
 const todoList = document.getElementById('do-list');
 const addListDiv = document.querySelector('.adding-list');
@@ -26,6 +27,20 @@ addButton.appendChild(addIcon);
 addListDiv.appendChild(inputTask);
 addListDiv.appendChild(addButton);
 let tasks = JSON.parse(localStorage.getItem('todolist')) || [];
+function updateTaskListItemClass(taskId, completed) {
+  const taskListItem = document.querySelector(`[data-task-id="${taskId}"]`);
+  if (taskListItem) {
+    if (completed) {
+      taskListItem.classList.add('checked');
+      taskListItem.style.background = '#f4f5Cf';
+      taskListItem.style.opacity = '0.5';
+    } else {
+      taskListItem.classList.remove('checked');
+      taskListItem.style.background = 'none';
+      taskListItem.style.opacity = '1';
+    }
+  }
+}
 
 function setIndex() {
   tasks.forEach((task, index) => {
@@ -38,6 +53,7 @@ class Create {
   constructor(newTask) {
     this.newTask = newTask;
   }
+
   createTodo() {
     const taskListItem = document.createElement('li');
     taskListItem.className = 'create-each-task';
@@ -54,7 +70,7 @@ class Create {
     if (this.newTask.complete) {
       taskListItem.classList.add('checked');
     }
- const taskDescription = document.createElement('input');
+    const taskDescription = document.createElement('input');
     taskDescription.setAttribute('type', 'text');
     taskDescription.setAttribute('class', 'task-description');
     taskDescription.value = this.newTask.description;
@@ -75,7 +91,7 @@ class Create {
     deleteButton.appendChild(addNewIcon);
     taskListItem.appendChild(deleteButton);
     todoList.appendChild(taskListItem);
- checkBox.addEventListener('change', () => {
+    checkBox.addEventListener('change', () => {
       this.newTask.complete = checkBox.checked;
 
       if (this.newTask.complete) {
@@ -88,9 +104,9 @@ class Create {
         taskListItem.style.opacity = '1';
       }
 
-      updateTaskStatus(this.newTask.id, this.newTask.complete); // Update task status in local storage
+      updateTaskStatus(this.newTask.id, this.newTask.complete);
     });
-  taskDescription.addEventListener('input', () => {
+    taskDescription.addEventListener('input', () => {
       this.newTask.description = taskDescription.value;
     });
 
@@ -103,7 +119,7 @@ class Create {
       taskDescription.removeAttribute('disabled');
       taskDescription.focus();
     });
-   addNewIcon.addEventListener('click', () => {
+    addNewIcon.addEventListener('click', () => {
       tasks = tasks.filter((task) => task.id !== this.newTask.id);
       taskListItem.remove();
       setIndex();
@@ -151,28 +167,14 @@ function displayList() {
   }
 }
 todoList.addEventListener('change', (e) => {
-    if (e.target.type === 'checkbox') {
-      const taskId = parseInt(e.target.getAttribute('data-task-id'));
-      const completed = e.target.checked;
-      updateTaskStatus(taskId, completed);
-      updateTaskListItemClass(taskId, completed);
-    }
-  });
-  
-  function updateTaskListItemClass(taskId, completed) {
-    const taskListItem = document.querySelector(`[data-task-id="${taskId}"]`);
-    if (taskListItem) {
-      if (completed) {
-        taskListItem.classList.add('checked');
-        taskListItem.style.background = '#f4f5Cf';
-        taskListItem.style.opacity = '0.5';
-      } else {
-        taskListItem.classList.remove('checked');
-        taskListItem.style.background = 'none';
-        taskListItem.style.opacity = '1';
-      }
-    }
+  if (e.target.type === 'checkbox') {
+    const taskId = parseInt(e.target.getAttribute('data-task-id'), 10);
+    const completed = e.target.checked;
+    updateTaskStatus(taskId, completed);
+    updateTaskListItemClass(taskId, completed);
   }
+});
+
 const clearCompletedButton = document.querySelector('.clear-completed-btn');
 if (clearCompletedButton) {
   clearCompletedButton.addEventListener('click', () => {
