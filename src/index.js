@@ -90,3 +90,16 @@ class Create {
 
       updateTaskStatus(this.newTask.id, this.newTask.complete); // Update task status in local storage
     });
+  taskDescription.addEventListener('input', () => {
+      this.newTask.description = taskDescription.value;
+    });
+
+    taskDescription.addEventListener('blur', () => {
+      taskDescription.setAttribute('disabled', '');
+      localStorage.setItem('todolist', JSON.stringify(tasks));
+    });
+
+    taskTag.addEventListener('click', () => {
+      taskDescription.removeAttribute('disabled');
+      taskDescription.focus();
+    });
