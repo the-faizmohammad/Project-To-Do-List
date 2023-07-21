@@ -75,3 +75,18 @@ class Create {
     deleteButton.appendChild(addNewIcon);
     taskListItem.appendChild(deleteButton);
     todoList.appendChild(taskListItem);
+ checkBox.addEventListener('change', () => {
+      this.newTask.complete = checkBox.checked;
+
+      if (this.newTask.complete) {
+        taskListItem.classList.add('checked');
+        taskListItem.style.background = '#f4f5Cf';
+        taskListItem.style.opacity = '0.5';
+      } else {
+        taskListItem.classList.remove('checked');
+        taskListItem.style.background = 'none';
+        taskListItem.style.opacity = '1';
+      }
+
+      updateTaskStatus(this.newTask.id, this.newTask.complete); // Update task status in local storage
+    });
