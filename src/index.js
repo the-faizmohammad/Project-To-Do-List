@@ -150,3 +150,26 @@ function displayList() {
     });
   }
 }
+todoList.addEventListener('change', (e) => {
+    if (e.target.type === 'checkbox') {
+      const taskId = parseInt(e.target.getAttribute('data-task-id'));
+      const completed = e.target.checked;
+      updateTaskStatus(taskId, completed);
+      updateTaskListItemClass(taskId, completed);
+    }
+  });
+  
+  function updateTaskListItemClass(taskId, completed) {
+    const taskListItem = document.querySelector(`[data-task-id="${taskId}"]`);
+    if (taskListItem) {
+      if (completed) {
+        taskListItem.classList.add('checked');
+        taskListItem.style.background = '#f4f5Cf';
+        taskListItem.style.opacity = '0.5';
+      } else {
+        taskListItem.classList.remove('checked');
+        taskListItem.style.background = 'none';
+        taskListItem.style.opacity = '1';
+      }
+    }
+  }
