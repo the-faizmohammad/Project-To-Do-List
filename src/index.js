@@ -54,3 +54,24 @@ class Create {
     if (this.newTask.complete) {
       taskListItem.classList.add('checked');
     }
+ const taskDescription = document.createElement('input');
+    taskDescription.setAttribute('type', 'text');
+    taskDescription.setAttribute('class', 'task-description');
+    taskDescription.value = this.newTask.description;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.className = 'deltbin';
+    deleteButton.setAttribute('type', 'button');
+    deleteButton.setAttribute('id', this.newTask.id);
+    const addNewIcon = new Image();
+    addNewIcon.className = 'addMore';
+    addNewIcon.src = dltImage;
+    addNewIcon.setAttribute('alt', 'plus Icon');
+
+    taskTag.appendChild(checkBox);
+    taskTag.appendChild(taskDescription);
+
+    taskListItem.appendChild(taskTag);
+    deleteButton.appendChild(addNewIcon);
+    taskListItem.appendChild(deleteButton);
+    todoList.appendChild(taskListItem);
