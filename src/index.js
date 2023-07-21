@@ -25,3 +25,16 @@ addIcon.className = 'addicon';
 addButton.appendChild(addIcon);
 addListDiv.appendChild(inputTask);
 addListDiv.appendChild(addButton);
+let tasks = JSON.parse(localStorage.getItem('todolist')) || [];
+
+function setIndex() {
+  tasks.forEach((task, index) => {
+    task.id = index + 1;
+  });
+  localStorage.setItem('todolist', JSON.stringify(tasks));
+}
+
+class Create {
+  constructor(newTask) {
+    this.newTask = newTask;
+  }
