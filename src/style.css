@@ -47,7 +47,7 @@ body {
 
 .list-adding:hover {
   background: #e4e4ff;
-  border: 1px solid #86f91f;
+  border: 1px solid #373835;
 }
 
 #add-new-list {
@@ -95,7 +95,7 @@ li.create-each-task {
 }
 
 .create-each-task:hover {
-  background: #cff9ce;
+  background: #363c36;
   transform: translateY(-2px);
 }
 
