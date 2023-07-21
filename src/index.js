@@ -140,3 +140,13 @@ addListDiv.addEventListener('click', (e) => {
     }
   });
 });
+function displayList() {
+  if (localStorage.getItem('todolist')) {
+    tasks = JSON.parse(localStorage.getItem('todolist'));
+    tasks.forEach((task) => {
+      const instance = new Create(task);
+      const { taskListItem } = instance.createTodo();
+      todoList.appendChild(taskListItem);
+    });
+  }
+}
