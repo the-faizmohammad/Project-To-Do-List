@@ -144,7 +144,7 @@ input.task-description {
 }
 
 .clear-completed-btn {
-  font-size: medium;
+  font-size: large;
   font-weight: bold;
   display: flex;
   width: 100%;
