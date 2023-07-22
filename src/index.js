@@ -2,6 +2,7 @@ import './style.css';
 import reloadImage from './reload.png';
 import dltImage from './delete.png';
 import addPlus from './plus.png';
+import { updateTaskStatus, clearCompletedTasks } from './statusUpdates.js';
 
 const appHeading = document.querySelector('.main-heading');
 const todoList = document.getElementById('do-list');
@@ -9,12 +10,10 @@ const addListDiv = document.querySelector('.adding-list');
 const inputTask = document.createElement('input');
 const addButton = document.createElement('button');
 const reloadIcon = new Image();
-// Add reload icon to the app heading
 reloadIcon.src = reloadImage;
 reloadIcon.className = 'reload-image';
 reloadIcon.setAttribute('alt', 'reload-icon');
 appHeading.appendChild(reloadIcon);
-// Set attributes for input element and button
 inputTask.setAttribute('type', 'text');
 inputTask.setAttribute('placeholder', 'Add task to your list');
 inputTask.setAttribute('id', 'add-new-list');
@@ -27,16 +26,29 @@ addIcon.className = 'addicon';
 addButton.appendChild(addIcon);
 addListDiv.appendChild(inputTask);
 addListDiv.appendChild(addButton);
-
 let tasks = JSON.parse(localStorage.getItem('todolist')) || [];
+function updateTaskListItemClass(taskId, completed) {
+  const taskListItem = document.querySelector(`[data-task-id="${taskId}"]`);
+  if (taskListItem) {
+    if (completed) {
+      taskListItem.classList.add('checked');
+      taskListItem.style.background = '#f4f5Cf';
+      taskListItem.style.opacity = '0.5';
+    } else {
+      taskListItem.classList.remove('checked');
+      taskListItem.style.background = 'none';
+      taskListItem.style.opacity = '1';
+    }
+  }
+}
 
-// Function to update the index of tasks after deletions
 function setIndex() {
   tasks.forEach((task, index) => {
     task.id = index + 1;
   });
   localStorage.setItem('todolist', JSON.stringify(tasks));
 }
+
 class Create {
   constructor(newTask) {
     this.newTask = newTask;
@@ -45,6 +57,7 @@ class Create {
   createTodo() {
     const taskListItem = document.createElement('li');
     taskListItem.className = 'create-each-task';
+    taskListItem.setAttribute('data-task-id', this.newTask.id); // Set task ID as data attribute
 
     const taskTag = document.createElement('div');
     taskTag.className = 'tag-check';
@@ -53,10 +66,10 @@ class Create {
     checkBox.setAttribute('class', 'task-check');
     checkBox.setAttribute('type', 'checkbox');
     checkBox.checked = this.newTask.complete;
+
     if (this.newTask.complete) {
       taskListItem.classList.add('checked');
     }
-
     const taskDescription = document.createElement('input');
     taskDescription.setAttribute('type', 'text');
     taskDescription.setAttribute('class', 'task-description');
@@ -78,7 +91,6 @@ class Create {
     deleteButton.appendChild(addNewIcon);
     taskListItem.appendChild(deleteButton);
     todoList.appendChild(taskListItem);
-
     checkBox.addEventListener('change', () => {
       this.newTask.complete = checkBox.checked;
 
@@ -91,12 +103,13 @@ class Create {
         taskListItem.style.background = 'none';
         taskListItem.style.opacity = '1';
       }
-      localStorage.setItem('todolist', JSON.stringify(tasks));
-    });
 
+      updateTaskStatus(this.newTask.id, this.newTask.complete);
+    });
     taskDescription.addEventListener('input', () => {
       this.newTask.description = taskDescription.value;
     });
+
     taskDescription.addEventListener('blur', () => {
       taskDescription.setAttribute('disabled', '');
       localStorage.setItem('todolist', JSON.stringify(tasks));
@@ -106,7 +119,6 @@ class Create {
       taskDescription.removeAttribute('disabled');
       taskDescription.focus();
     });
-
     addNewIcon.addEventListener('click', () => {
       tasks = tasks.filter((task) => task.id !== this.newTask.id);
       taskListItem.remove();
@@ -133,7 +145,7 @@ function addTaskToList(value) {
   instance.createTodo();
   localStorage.setItem('todolist', JSON.stringify(tasks));
 }
-// Event to add the inputted task to the array and display it
+
 addListDiv.addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -144,7 +156,6 @@ addListDiv.addEventListener('click', (e) => {
     }
   });
 });
-// Function to display the existing array of tasks from localStorage
 function displayList() {
   if (localStorage.getItem('todolist')) {
     tasks = JSON.parse(localStorage.getItem('todolist'));
@@ -154,6 +165,23 @@ function displayList() {
       todoList.appendChild(taskListItem);
     });
   }
+}
+todoList.addEventListener('change', (e) => {
+  if (e.target.type === 'checkbox') {
+    const taskId = parseInt(e.target.getAttribute('data-task-id'), 10);
+    const completed = e.target.checked;
+    updateTaskStatus(taskId, completed);
+    updateTaskListItemClass(taskId, completed);
+  }
+});
+
+const clearCompletedButton = document.querySelector('.clear-completed-btn');
+if (clearCompletedButton) {
+  clearCompletedButton.addEventListener('click', () => {
+    clearCompletedTasks();
+    const completedTaskItems = document.querySelectorAll('.create-each-task.checked');
+    completedTaskItems.forEach((item) => item.remove());
+  });
 }
 
 document.addEventListener('DOMContentLoaded', displayList);
