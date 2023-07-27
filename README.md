@@ -86,7 +86,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```
-git clone yourlink repo [https://github.com/the-faizmohammad/conferencePage]
+git clone yourlink repo [https://github.com/the-faizmohammad/Project-To-Do-List]
 
 cd your folder name
 ```
