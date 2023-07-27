@@ -44,7 +44,7 @@ This repository contains the code and assets for To do list application."To-do l
   <ul>
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></li>
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
-    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Javascript">CSS</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Javascript">Javascript</a></li>
 </ul>
 </details>
 <details>
